@@ -7,7 +7,8 @@ public class Sketch extends PApplet {
    * state global variables
    *  
    * */ 
-  public float circleY = -50;
+  public float circleY = 0;
+  public float circleX = 0;
 
 	
 	
@@ -16,7 +17,7 @@ public class Sketch extends PApplet {
    */
   public void settings() {
 	  // put your size call here
-    size(200, 200);
+    size(600, 500);
   }
 
   /** 
@@ -36,18 +37,23 @@ public class Sketch extends PApplet {
     background(32);
 
     // draw current frame based on state
-    ellipse(100, circleY, 50, 50);
+    ellipse(circleX, circleY, 50, 50);
   
     // modify state
-    circleY = circleY + 1;
-  
+    circleY = (float) (Math.pow(-circleX/200, 2) + 3 * circleX/10 + 300);
+    circleX = circleX + 1;
+    
     // reset state
-    if(circleY > height+50) {
-      circleY = 0;
+    //if(circleY == 1) {
+    //  circleY = 500;
+    //}
+    //if (circleX > width + 50){
+    //  circleX = 600;
+    
+   // }
     }
   }
   
   // define other methods down here.
 
 
-}
